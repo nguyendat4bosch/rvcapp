@@ -8,8 +8,8 @@ android {
 
     defaultConfig {
         applicationId = "io.mastercoding.rvcapp"
-        minSdk = 24
-        targetSdk = 36
+        minSdk = 31
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -32,7 +32,10 @@ android {
 }
 
 dependencies {
-
+    // Add all JARs inside the libs directory as compile-only dependencies
+    compileOnly(fileTree("libs") {
+        include("*.jar")
+    })
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -40,4 +43,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
 }
